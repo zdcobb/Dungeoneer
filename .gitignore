@@ -13,8 +13,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
+.vscode
 .idea
 .DS_Store
 *.suo
@@ -25,5 +24,5 @@ dist-ssr
 
 .editorconfig
 .pnp.*
-.yarn
-.vscode
+.yarn/unplugged
+.yarn/install-state.gz
