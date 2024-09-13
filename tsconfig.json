@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "checkJs": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
   "files": [],
 
   "references": [
