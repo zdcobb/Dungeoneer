@@ -1,7 +1,14 @@
 # Project Structure Planning
 
-## Routes
-Tech stack: 
+### Data flows
+- Dumb components/views; smart controllers & models
+- MVC-"ish?": 
+    - Models will contain _most_ of the business logic; 
+    - View logic will be handled by components; 
+    - Controllers will control the flow of logic;
+- Some higher-order components control their own data fetching, making things more composable and maintaining a "separation of concerns."
+
+## Tech stack: 
 - AWS or GCP (?)
 - docker & node
 - yarn & vite
@@ -11,19 +18,19 @@ Tech stack:
 - zod
 - Vitest & Playwright
 
+## Routes
+- Register
+- Login
+- Home or Dashboard
+- Maps Library
+- Map viewer
+- User Profile
+- Password Recovery
 
+## Option 1
 ### /Controllers or /Routes?
 This will be where we store the routes/controllers for the project, this includes `loaders` & `actions` for each route.
 Most business logic (e.g., data fetching & transformations) should be _defined_ in the `/models` and _used by_ the controllers as needed.
-
-#### Loaders
-- Map list loaders
-- Map loader
-
-#### Actions
-- Login action
-- Registration action
-
 
 ### /Components
 As the title implies, this will be storage for components big and small. Some components will be "specialized", but generally 
@@ -49,10 +56,18 @@ Models will serve 2 major purposes (and probably several other smaller):
 ### /Utils
 ???
 
-### Data flows
-- Dumb components/views; smart controllers & models
-- MVC-"ish?": 
-    - Models will contain _most_ of the business logic; 
-    - View logic will be handled by components; 
-    - Controllers will control the flow of logic;
-- Some higher-order components control their own data fetching, making things more composable and maintaining a "separation of concerns."
+## Option 2
+Feature-Based Structure: instead of having things broken up by `/controllers`, `views`, `/models`, etc., the project will be split up into directories relating to features, e.g., the `/home` or `/dashboard` directories.
+
+Each feature directory will have:
+- component file
+- styles (as needed)
+- a zod model(s) w/ types (as needed)
+- helpers
+- fetchers? perhaps for loaders, actions, controller logic if large, etc.
+
+There are also some non-feature-related folders too, such as:
+- /layouts
+- /config
+- /routes
+- etc. ???
